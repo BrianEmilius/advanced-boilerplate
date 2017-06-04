@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+	.input-field
+		input(name="title" value=page.title)#title
+		label(for="title")= __('Page Name')
+	.input-field
+		input(name="permalink" value=page.permalink)#permalink
+		label(for="permalink")= __('Permalink')
+	.input-field
+		textarea(name="content")= page.body
+
+	script(src="/scripts/tinymce/tinymce.min.js")
+	script(src="/scripts/tinymceInit.js")

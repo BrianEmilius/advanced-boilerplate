@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+	h1= title
+	each message in (flash.error || [])
+		.card-panel.red= message
+	form(action="api/user" method="post")
+		!= token
+		.input-field
+			i.material-icons.prefix account_box
+			input#username.validate(type="text" name="username" required)
+			label(for="username") #{__('Username')}
+		.input-field
+			i.material-icons.prefix email
+			input#email.validate(type="email" name="email" required)
+			label(for="email") #{__('Email')}
+		.input-field
+			i.material-icons.prefix lock
+			input#password.validate(type="password" name="password" required)
+			label(for="password") #{__('Password')}
+		.input-field
+			i.material-icons.prefix lock
+			input#passwordRepeat.validate(type="password" name="passwordRepeat" required)
+			label(for="passwordRepeat") #{__('Repeat password')}
+		.g-recaptcha(data-sitekey="6Lch_woTAAAAALTdy_hi3DP1n08KlmZCYGA72Qs3")
+		button.btn.waves-effect.waves-light(type="submit") #{__('Create account')}
+			i.material-icons.right send
+		script(src='https://www.google.com/recaptcha/api.js?hl=' + __('lang'))

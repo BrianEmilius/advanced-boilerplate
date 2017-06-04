@@ -1,0 +1,27 @@
+{
+  "name": "advanced-boilerplate",
+  "version": "0.0.1",
+  "description": "Node.js express boilerplate with a highly modulized structure",
+  "main": "app.js",
+  "scripts": {
+    "postinstall": "node ./scripts/createlog"
+  },
+  "repository": "https://github.com/BrianEmilius/advanced-boilerplate",
+  "author": "Brian Emilius <brian@brianemilius.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^1.0.2",
+    "body-parser": "^1.17.1",
+    "connect-flash": "^0.1.1",
+    "express": "^4.15.3",
+    "express-session": "^1.15.2",
+    "i18n": "^0.8.3",
+    "jstransformer-markdown-it": "^2.0.0",
+    "lru-cache": "^4.0.2",
+    "mongoose": "^4.9.9",
+    "morgan": "^1.8.1",
+    "pug": "^2.0.0-rc.1",
+    "request": "^2.81.0",
+    "tinymce": "^4.6.3"
+  }
+}

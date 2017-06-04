@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+	.row.nem-utility
+		a(data-position="left" data-delay="50" data-tooltip=__('Add new page')).btn-floating.btn-large.tooltipped.right.waves-effect.waves-light.red.lighten-2
+			i.material-icons add
+	table.responsive-table.highlight
+		thead
+			tr
+				th= __('Page Name')
+				th
+		tbody
+			each page in pages
+				tr
+					td
+						a(href="/admin/page/"+page.id)= page.title
+					td
+						a(href="/admin/page/"+page.id data-position="bottom" data-delay="50" data-tooltip=__('Edit')).tooltipped
+							i.material-icons create
+						a(href="/admin/page/"+page.id+"/delete" data-position="bottom" data-delay="50" data-tooltip=__('Delete')).tooltipped
+							i.material-icons delete

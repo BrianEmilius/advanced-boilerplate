@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+
+	h1= title
+	form(action="api/user" method="post")
+		each message in (flash.error || [])
+			.card-panel.red= message
+		!= token
+		.input-field
+			i.material-icons.prefix account_box
+			input#username.validate(type="text" name="username" required)
+			label(for="username") #{__('Username or email')}
+		.input-field
+			i.material-icons.prefix lock
+			input#password.validate(type="password" name="password" required)
+			label(for="password") #{__('Password')}
+		button.btn.waves-effect.waves-light(type="submit") #{__('Sign in')}
+			i.material-icons.right send
+	p #{__('Haven\'t got an account?')} 
+		a(href="/user") #{__('Create one here')}
