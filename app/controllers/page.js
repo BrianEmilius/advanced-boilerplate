@@ -1,12 +1,12 @@
 /**
  * Describes methods to create, retrieve, update, and delete pages
- * @returns void
+ * @class
  */
 function Pages() {
-	this.pages = require('../models/pages')
-	this.users = require('../models/users')
-	require('mongoose').connect(require('../../config/database/mongodb').url)
-}
+	this.pages = require('../models/pages');
+	this.users = require('../models/users');
+	require('mongoose').connect(require('../../config/database/mongodb').url);
+};
 
 /**
  * Retrieve a page by permalink or id
@@ -15,25 +15,25 @@ function Pages() {
  */
 Pages.prototype.retrieveOne = function(pageQuery, cFunction) {
 	let ObjectId = require('mongoose').Types.ObjectId,
-		pageQueryOId
+		pageQueryOId;
 
 	try {
-		pageQueryOId = new ObjectId(pageQuery)
+		pageQueryOId = new ObjectId(pageQuery);
 	}
 	catch (error) {
-		//console.error(error)
+		//console.error(error);
 	}
 
-	let filter = (pageQueryOId) ? { '_id': pageQueryOId } : { 'permalink': pageQuery }
+	let filter = (pageQueryOId) ? { '_id': pageQueryOId } : { 'permalink': pageQuery };
 
 	this.pages.findOne(filter)
 	.populate('author', 'email')
 	.select('title permalink body author')
 	.exec(function(error, result) {
-		if (error) return console.error(error)
-		cFunction(result)
-	})
-}
+		if (error) return console.error(error);
+		cFunction(result);
+	});
+};
 
 /**
  * Retrieve a list of all pages
@@ -43,8 +43,8 @@ Pages.prototype.retrieveList = function(cFunction) {
 	this.pages.find({})
 	.select('title permalink')
 	.exec(function(error, result) {
-		if (error) return console.error(error)
-		cFunction(result)
-	})
+		if (error) return console.error(error);
+		cFunction(result);
+	});
 }
-module.exports = Pages
+module.exports = Pages;

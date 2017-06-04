@@ -13,6 +13,6 @@ const mongoose = require('mongoose'),
 		title: 'text',
 		permalink: 'text',
 		body: 'text'
-	})
+	});
 
-module.exports = mongoose.model('pages', pages)
+module.exports = mongoose.model('pages', pages);

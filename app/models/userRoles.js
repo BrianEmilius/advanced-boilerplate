@@ -8,6 +8,6 @@ const mongoose = require('mongoose'),
 	.index({
 		email: 'text',
 		username: 'text'
-	})
+	});
 
-module.exports = mongoose.model('userRoles', userRoles)
+module.exports = mongoose.model('userRoles', userRoles);

@@ -1,5 +1,5 @@
 module.exports = function (app) {
 	app.get(/(.*)/, function (req, res) {
-		res.end('I am a wildcard page!')
-	})
-}
+		res.end('I am a wildcard page!');
+	});
+};
