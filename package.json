@@ -16,7 +16,6 @@
     "express": "^4.15.3",
     "express-session": "^1.15.2",
     "i18n": "^0.8.3",
-    "jstransformer-markdown-it": "^2.0.0",
     "lru-cache": "^4.0.2",
     "mongoose": "^4.9.9",
     "morgan": "^1.8.1",
