@@ -1,5 +1,5 @@
-const server = require('express')
+const server = require('express');
 
 module.exports = function (app) {
-	app.use(server.static(__dirname + '/../../public', { maxAge: 1000 * 60 * 60 }))
-}
+	app.use(server.static(__dirname + '/../../public', { maxAge: 1000 * 60 * 60 }));
+};

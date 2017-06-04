@@ -12,6 +12,6 @@ const mongoose = require('mongoose'),
 	.index({
 		email: 'text',
 		username: 'text'
-	})
+	});
 
-module.exports = mongoose.model('users', users)
+module.exports = mongoose.model('users', users);
