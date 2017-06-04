@@ -1,12 +1,18 @@
 {
   "name": "advanced-boilerplate",
   "version": "0.0.1",
-  "description": "Node.js express boilerplate with a highly modulized structure",
+  "description": "Node.js express content management system with a highly modulized structure",
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "cms"
+  ],
   "main": "app.js",
   "scripts": {
     "postinstall": "node ./scripts/createlog"
   },
-  "repository": "https://github.com/BrianEmilius/advanced-boilerplate",
+  "repository": "https://github.com/BrianEmilius/nem-cms",
   "author": "Brian Emilius <brian@brianemilius.com>",
   "license": "MIT",
   "dependencies": {
