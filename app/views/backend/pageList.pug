@@ -13,9 +13,9 @@ block content
 			each page in pages
 				tr
 					td
-						a(href="/admin/page/"+page.id)= page.title
+						a(href="/dash/page/"+page.id data-position="bottom" data-delay="50" data-tooltip=__('Edit')).tooltipped= page.title
 					td
-						a(href="/admin/page/"+page.id data-position="bottom" data-delay="50" data-tooltip=__('Edit')).tooltipped
+						a(href="/dash/page/"+page.id data-position="bottom" data-delay="50" data-tooltip=__('Edit')).tooltipped
 							i.material-icons create
-						a(href="/admin/page/"+page.id+"/delete" data-position="bottom" data-delay="50" data-tooltip=__('Delete')).tooltipped
+						a(href="/dash/page/"+page.id+"/delete" data-position="bottom" data-delay="50" data-tooltip=__('Delete')).tooltipped
 							i.material-icons delete
