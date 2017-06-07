@@ -3,8 +3,9 @@
  * @class
  */
 function Users() {
+	const Validate = require('../../lib/validation');
 	this.bcrypt   = require('bcrypt');
-	this.validate = require('../../lib/validation');
+	this.validate = new Validate();
 	this.users    = require('../models/users');
 };
 
@@ -20,8 +21,9 @@ Users.prototype.create = function(req, res, cFunction) {
 	// only do other validation if form-token is valid
 	if (this.validate.formToken(req.session.token, req.body._once)) {
 		delete req.session.token;
-		let user = {},
-			error = false;
+		let user   = {},
+			secret = '6Lch_woTAAAAACxhZyE8OphuQ1w4cYzBkk8aazVl',
+			error  = false;
 
 		// validate reCaptcha
 		if (req.body['g-recaptcha-response'] === undefined
@@ -33,7 +35,7 @@ Users.prototype.create = function(req, res, cFunction) {
 		}
 		// do check on reCaptcha validation with google API
 		else {
-			if (this.validate.reCaptcha(req.body['g-recaptcha-response'])) {
+			if (this.validate.reCaptcha(req.body['g-recaptcha-response'], secret)) {
 				req.flash('error', res.__('Captcha validation failed'));
 				error = true;
 			}
